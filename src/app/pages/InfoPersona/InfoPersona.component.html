@@ -1,0 +1,56 @@
+<mat-card class="soat-card">
+  <mat-card-header>
+      <div mat-card-avatar class="accentColor">
+          <mat-icon>face</mat-icon>
+      </div>
+      <mat-card-title class="accentColor">Datos del contratante</mat-card-title>
+      <mat-card-subtitle>Verifica y completa tus datos.</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+
+      <form>
+          <div fxLayout="column" fxFlex.sm="50%" fxFlex.xs="100%" fxLayoutGap="10px">
+              <input placeholder="Nombres" type="text" [(ngModel)]="Persona.nombres" name="nombres">
+              <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap.sm="0" fxLayoutGap="10px">
+                  <input type="text" [(ngModel)]="Persona.apellidoPaterno" name="apellidoPaterno" placeholder="Apellido Paterno">
+                  <input type="text" [(ngModel)]="Persona.apellidoMaterno " name="apellidoMaterno" placeholder="Apellido Materno">
+              </div>
+              <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap.sm="0" fxLayoutGap="10px">
+                <input type="text" [(ngModel)]="Persona.celular " name="celular" placeholder="Celular">
+                <input type="text" [(ngModel)]="Persona.correo" name="correo" placeholder="Correo electrónico">                
+              </div>
+              <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap.sm="0" fxLayoutGap="10px">                  
+                  <select [(ngModel)]="Persona.departamento" name="departamento">
+                      <option value="">Selecciona el departamento</option>
+                      <option *ngFor="let departamento of departamentos" [value]="departamento.value">
+                          {{departamento.label}}
+                      </option>
+                  </select>
+                  <select [(ngModel)]="Persona.provincia" name="provincia">
+                    <option value="">Selecciona la provincia</option>
+                    <option *ngFor="let provincia of provincias" [value]="provincia.value">
+                        {{provincia.label}}
+                    </option>
+                  </select>
+              </div>
+              <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap.sm="0" fxLayoutGap="10px">
+                  <select [(ngModel)]="Persona.distrito" name="distrito">
+                          <option value="">Selecciona el distrito</option>
+                          <option *ngFor="let distrito of distritos" [value]="distrito.value">
+                                  {{distrito.label}}
+                          </option>
+                  </select>
+              </div>              
+              <input type="text" [(ngModel)]="Persona.direccion" name="direccion" placeholder="Dirección">
+              <div>
+                  <mat-checkbox [(ngModel)]="acceptPolicies" name="acceptPolicies"></mat-checkbox>
+                  Declaro haber leído y acepto las
+                  <a class="primaryColor" style="cursor: pointer;" (click)="viewPolicies()">Políticas sobre la protección de datos personales</a>
+              </div>
+          </div>
+      </form>
+  </mat-card-content>
+  <mat-card-actions>
+      <button class="soat-button" color="accent" mat-raised-button [disabled]="!acceptPolicies" (click)="verCobertura()">Confirmar</button>
+  </mat-card-actions>
+</mat-card>

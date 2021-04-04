@@ -1,0 +1,31 @@
+<mat-card class="soat-card">
+  <mat-card-header>
+      <div mat-card-avatar class="accentColor">
+          <mat-icon>thumb_up</mat-icon>
+      </div>
+      <mat-card-title class="accentColor">Confirmación</mat-card-title>
+      <mat-card-subtitle>Tu compra se realizó con éxito!. </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+
+      <div fxLayout="column" fxLayoutGap="20px">
+          <div fxLayoutAlign="center">
+              <h3>
+                  Recibirás tu certificado SOAT, comprobante de pago en tu correo electrónico {{mail}}
+              </h3>
+          </div>
+          <!--
+          <div fxLayoutAlign="center">
+              <button class="soat-button" color="accent" mat-raised-button (click)="viewDocument()">Ver Póliza</button>
+          </div>
+            -->
+      </div>
+
+      <div fxHide fxShow.lg="true">
+          <div style="height: 100px;"></div>
+      </div>
+  </mat-card-content>
+  <mat-card-actions>
+      <button class="soat-button" color="accent" mat-raised-button routerLink="/">Finalizar</button>
+  </mat-card-actions>
+</mat-card>

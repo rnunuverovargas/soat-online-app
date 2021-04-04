@@ -1,0 +1,49 @@
+<mat-card class="soat-card">
+    <mat-card-header>
+        <div mat-card-avatar class="accentColor">
+            <mat-icon>directions_car</mat-icon>
+        </div>
+        <mat-card-title class="accentColor">Datos del vehículo : {{placa}}</mat-card-title>
+        <mat-card-subtitle>Verifica y completa los datos de tu vehículo.</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+
+        <form>
+            <div fxLayout="column" fxFlex.sm="50%" fxFlex.xs="100%" fxLayoutGap="10px">
+                <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap.sm="0" fxLayoutGap="10px">
+                    <select class="full-width" [(ngModel)]="Vehiculo.marca" name="marca">
+                        <option>Selecciona la marca</option>
+                        <option *ngFor="let marca of marcas" [value]="marca.value">{{marca.label}}</option>
+                    </select>
+
+                    <select class="full-width" [(ngModel)]="Vehiculo.modelo" name="modelo">
+                        <option>Selecciona el modelo</option>
+                        <option *ngFor="let modelo of modelos" [value]="modelo.value">{{modelo.label}}</option>
+                    </select>
+                </div>
+                <select class="full-width" [(ngModel)]="Vehiculo.tipo" name="tipo">
+                    <option>Selecciona el tipo</option>
+                    <option *ngFor="let tipo of tipos" [value]="tipo.value">{{tipo.label}}</option>
+                </select>
+                <div fxLayout="row" fxLayoutGap="10px" fxLayout.xs="column">
+                    <input [(ngModel)]="Vehiculo.anio" name="anio" placeholder="Año" type="number" maxlength="4">
+                    <select class="full-width" [(ngModel)]="Vehiculo.uso" name="uso">
+                        <option>Selecciona el uso</option>
+                        <option *ngFor="let uso of usos" [value]="uso.value">{{uso.label}}</option>
+                    </select>
+                </div>
+                <select class="full-width" [(ngModel)]="Vehiculo.region" name="region">
+                    <option>Selecciona la Región</option>
+                    <option *ngFor="let region of regiones" [value]="region.value">{{region.label}}</option>
+                </select>
+            </div>
+        </form>
+
+        <div fxHide fxShow.lg="true">
+            <div style="height: 50px;"></div>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button class="soat-button" color="accent" mat-raised-button (click)="buscarPersona()">Confirmar</button>
+    </mat-card-actions>
+</mat-card>

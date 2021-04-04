@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+
+  <button mat-button routerLink="/">
+    <mat-icon>directions_car</mat-icon>
+    SOAT EN LÍNEA
+  </button>
+
+  <span class="example-spacer"></span>
+ 
+  <button mat-icon-button [mat-menu-trigger-for]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+</mat-toolbar>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>
+      <mat-icon>help</mat-icon>
+      <span>Ayuda</span>
+  </button>
+</mat-menu>

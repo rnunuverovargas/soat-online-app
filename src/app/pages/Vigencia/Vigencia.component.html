@@ -1,0 +1,32 @@
+<mat-card class="soat-card">
+  <mat-card-header>
+      <div mat-card-avatar class="accentColor">
+          <mat-icon>today</mat-icon>
+      </div>
+      <mat-card-title class="accentColor">Inicio de vigencia</mat-card-title>
+      <mat-card-subtitle>Selecciona la fecha de inicio de vigencia. El último SOAT activo que tenemos registrado vence el {{finVigencia |
+          date:'dd/MM/yyyy'}}.
+
+
+      </mat-card-subtitle>
+
+  </mat-card-header>
+
+  <mat-card-content>
+      <form>
+          <div fxLayout="column" fxLayoutAlign="center">
+              <p>Ingrese un nuevo <b>Inicio de Vigencia</b></p>        
+            <div fxLayout="row">
+                  <input  type="text" [min]="minDate" name="inicioVigencia" [(ngModel)]="inicioVigencia" [matDatepicker]="picker" placeholder="Fecha de Incio de Vigencia">
+                  <button mat-mini-fab (click)="picker.open()"><mat-icon>today</mat-icon></button>
+              </div>
+              <mat-datepicker #picker touchUi="true" [startAt]="inicioVigencia"></mat-datepicker>                                   
+              <p>Su nuevo fin de vigencia es <strong>{{ nuevoFinVigencia |date:'dd/MM/yyyy'}}</strong></p>
+          </div>         
+      </form>
+
+  </mat-card-content>
+  <mat-card-actions>
+      <button class="soat-button" color="accent" mat-raised-button (click)="viewSummary()">Confirmar</button>
+  </mat-card-actions>
+</mat-card>

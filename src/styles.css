@@ -1,0 +1,102 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: "Roboto","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    margin: 0;
+  }
+  
+  .soat-button[mat-button], .soat-button[mat-raised-button] {
+    text-transform: uppercase;
+    background-color: #e91e63;
+    color: #fff;
+    margin: 0 4px;
+  }
+  
+  .soat-card{
+    margin:10px;
+  }
+  
+  .mat-select-trigger {
+      height: 41px !important;
+      margin-bottom: 18px !important;
+      font-size: 14px !important;
+  }
+  
+  .full-width{
+    width:100%;
+  }
+  
+  .fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%  !important;
+  }
+  
+  .mainContainer{
+    margin-top: 0px;    
+  }
+  
+  .main-button{
+    height: 50px;
+    width: 200px;
+    font-size: 1.3em !important;
+  }
+  
+  input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="color"], textarea {
+    -webkit-appearance: none;
+    background-color: #ffffff;
+    background-image: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    font-family: inherit;
+    font-style: italic;
+    border-style: solid;
+    border-width: 4px;
+    border-color: #f3f3f3;
+    display: block;
+    font-size: 0.9em;
+    padding: 0.3rem;
+    height: 37px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    transition: all 0.15s linear;
+  }
+  
+  textarea:focus, input:focus{
+    outline: none;
+  }
+  
+  select {
+    -webkit-appearance: none !important;
+    background-color: #ffffff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 4px;
+    border-color: #f3f3f3;
+    padding: 0.5rem;
+    font-size: 0.9em;
+    font-family: Arial, sans-serif;
+    line-height: normal;
+    height: 37px;
+    width: 100%;
+    color: 0.813em;
+    outline: none;
+  }
+  
+  
+  .medium-input{
+    height: 50px !important;
+    font-size: 1.3rem !important;
+  }
+
+  .accentColor {
+    color: #e91e63;
+}

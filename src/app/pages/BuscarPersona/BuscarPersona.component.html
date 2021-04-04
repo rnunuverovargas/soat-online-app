@@ -1,0 +1,27 @@
+<mat-card class="soat-card">
+  <mat-card-header>
+      <div mat-card-avatar class="accentColor">
+          <mat-icon>face</mat-icon>
+      </div>
+      <mat-card-title class="accentColor">Ingresa tu tipo y número de documento</mat-card-title>
+      <mat-card-subtitle>Buscaremos tus datos de acuerdo al tipo y número de documento. </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+      <form>
+          <div fxLayout="column" fxLayoutGap="10px">
+              <select [(ngModel)]="tipoDocumento" name="tipoDocumento">
+                  <option value="">Selecciona el tipo de documento</option>
+                  <option *ngFor="let tipodoc of tipodocs" [value]="tipodoc.value">{{tipodoc.label}}</option>
+              </select>
+              <input placeholder="Número de documento" [(ngModel)]="numeroDocumento" name="numeroDocumento" type="text">
+          </div>
+      </form>
+
+      <div fxHide fxShow.lg="true">
+          <div style="height: 100px;"></div>
+      </div>
+  </mat-card-content>
+  <mat-card-actions>
+      <button class="soat-button" color="accent" mat-raised-button [disabled]="!tipoDocumento || !numeroDocumento" (click)="search()">Continuar</button>
+  </mat-card-actions>
+</mat-card>

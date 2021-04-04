@@ -1,0 +1,18 @@
+.summary-list-vigencia{
+    background-color: #d2dfea;
+}
+
+.vigencia-text{
+    font-size: 1.05em !important;
+    color: #3c3e40;
+}
+
+.monto-text{
+    font-size: 1.3em !important;
+    color: #3c3e40;
+}
+
+.total-text{
+    border-top-style: ridge;
+    font-weight: bold !important;
+}

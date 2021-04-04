@@ -1,0 +1,22 @@
+<mat-card class="soat-card">
+    <mat-card-content>
+        <h1 class="homeTitle">
+            <mat-icon>directions_car</mat-icon>
+            SOAT en línea
+        </h1>
+        <h2 class="homeSubTitle">Tu mejor opción a la hora de comprar tu SOAT con total seguridad.</h2>
+        <div fxLayout="column" fxLayoutGap="30px">
+            <form>
+                <div fxLayoutAlign="center">
+                    <input type="text" class="medium-input" placeholder="Ingresa la placa de tu vehículo" [(ngModel)]="placa" name="placa" maxlength="6">
+                </div>
+            </form>
+            <div fxLayoutAlign="center">
+                <button class="soat-button main-button" [disabled]="!placa" color="primary" mat-raised-button (click)="search()">Continuar</button>
+            </div>
+        </div>
+        <div fxHide fxShow.lg="true">
+            <div style="height: 60px;"></div>
+        </div>
+    </mat-card-content>
+</mat-card>

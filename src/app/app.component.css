@@ -1,0 +1,40 @@
+app-root {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+  }
+  
+  soat-toolbar {
+    position: relative;
+    z-index: 10;
+  }
+  
+  .mainImage{
+    background-image: url('../assets/img/home.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .mainIcon{
+      font-size: 4rem;
+      width: 4rem !important;
+      height: 4rem !important;
+      margin-right: .5rem;
+      color: #3f51b5;
+  }
+
+  .mainSection{
+    margin: 20px;
+  }
+
+
+.mainTitle {
+    margin-top: 40px;
+    margin-left: 20px;
+    margin-bottom: 0;
+    color: white;
+
+}
