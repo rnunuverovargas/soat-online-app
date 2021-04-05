@@ -1,23 +1,24 @@
 <app-toolbar></app-toolbar>
-<div style="height: 48px;" fxHide fxShow.xs="true"></div>
 <div class="mainContainer">
-    <div fxLayout="row" class="mainImage">
-        <div fxLayout="column" fxFlex="50%" fxHide.sm="true" fxHide.xs="true">
-        </div>
-        <div fxLayout="column" fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
-            <router-outlet (deactivate)="onDeactivate()"></router-outlet>
-        </div>
-    </div>
-    <div fxLayout="row" fxLayout.xs="column">
-        <div fxLayout="row" fxLayout.sm="column" class="mainSection" *ngFor="let section of sections">
-            <div fxLayout="column" fxLayout.sm="row" fxLayoutAlign="center">
-                <mat-icon class="mainIcon primaryColor">{{section.icon}}</mat-icon>
+    <div class="container-general">
+        <div fxLayout="row" class="mainImage">
+            <div fxLayout="column" fxFlex="50%" fxHide.sm="true" fxHide.xs="true">
             </div>
-            <div>
-                <h3 class="accentColor" fxLayoutAlign.sm="center">{{section.title}}</h3>
-                <p>
-                    {{section.text}}
-                </p>
+            <div fxLayout="column" fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%" class="component">
+                <router-outlet (deactivate)="onDeactivate()"></router-outlet>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column">
+            <div fxLayout="row" fxLayout.sm="column" class="mainSection" *ngFor="let section of sections">
+                <div fxLayout="column" fxLayout.sm="row" fxLayoutAlign="center">
+                    <mat-icon class="mainIcon primaryColor">{{section.icon}}</mat-icon>
+                </div>
+                <div>
+                    <h3 class="accentColor" fxLayoutAlign.sm="center">{{section.title}}</h3>
+                    <p>
+                        {{section.text}}
+                    </p>
+                </div>
             </div>
         </div>
     </div>

@@ -34,7 +34,11 @@ body {
   }
   
   .mainContainer{
-    margin-top: 0px;    
+    margin-top: 0px; 
+    position: relative; 
+    top: 64px !important;  
+    height: calc(100% - 64px);
+    background-color: #3f51b5;
   }
   
   .main-button{
@@ -99,4 +103,46 @@ body {
 
   .accentColor {
     color: #e91e63;
+}
+
+.mainImage {
+  min-height: 400px !important;
+}
+
+.mainImage .component {
+  margin: auto !important;
+}
+
+
+
+
+
+@media (max-width: 600px) {
+  .mainContainer{
+    position: relative; 
+    top: 55px !important;  
+    height: calc(100% - 55px);
+  }
+
+  .mainImage {
+    min-height: 0% !important;
+  }
+  
+}
+
+.container-general {
+  background: #FFFFFf;
+  min-height: 570px;
+}
+
+mat-card-actions button {
+  margin: auto !important;
+  display: block !important;
+}
+
+mat-card-actions .register-link {
+  margin: auto !important;
+  display: block !important;
+  text-align: center;
+  padding: 10px;
 }

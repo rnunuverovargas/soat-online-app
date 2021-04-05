@@ -1,0 +1,24 @@
+<mat-card class="soat-card">
+    <mat-card-header>
+        <div mat-card-avatar class="accentColor">
+            <mat-icon>perm_identity</mat-icon>
+        </div>
+        <mat-card-title class="accentColor">Inicia Sesión </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form>
+            <div fxLayout="column" fxFlex.sm="100%" fxFlex.xs="100%" fxLayoutGap="10px">
+                <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap.sm="0" fxLayoutGap="10px">
+                    <input type="text" [(ngModel)]="email" name="email" placeholder="Ingresa tu email">
+                </div>
+                <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap.sm="0" fxLayoutGap="10px">
+                    <input type="password" [(ngModel)]="password" name="password" placeholder="Ingresa tu contraseña">
+                </div>
+            </div>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button class="soat-button" color="accent" mat-raised-button (click)="ingresar()">Iniciar Sesión</button>
+        <a class="register-link">¿No tienes cuenta? Registrate</a>
+    </mat-card-actions>
+</mat-card>

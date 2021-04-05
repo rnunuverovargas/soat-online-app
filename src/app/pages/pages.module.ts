@@ -48,6 +48,8 @@ import { politicasComponent } from './InfoPersona/politicas/politicas.component'
 import { MatNativeDateModule } from '@angular/material/core';
 import { ResumenComponent } from './Resumen/Resumen.component';
 import { ConfirmacionComponent } from './Confirmacion/Confirmacion.component';
+import { LoginComponent } from './login/login.component';
+import { VentasComponent } from './ventas/ventas.component';
 
 
 
@@ -110,7 +112,9 @@ import { ConfirmacionComponent } from './Confirmacion/Confirmacion.component';
         CoberturaComponent,
         VigenciaComponent,
         ResumenComponent,
-        ConfirmacionComponent
+        ConfirmacionComponent,
+        LoginComponent,
+        VentasComponent
     ],
     entryComponents: [DetalleCoberturaComponent,politicasComponent],
     providers: [

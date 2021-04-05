@@ -16,10 +16,6 @@
               <input placeholder="Número de documento" [(ngModel)]="numeroDocumento" name="numeroDocumento" type="text">
           </div>
       </form>
-
-      <div fxHide fxShow.lg="true">
-          <div style="height: 100px;"></div>
-      </div>
   </mat-card-content>
   <mat-card-actions>
       <button class="soat-button" color="accent" mat-raised-button [disabled]="!tipoDocumento || !numeroDocumento" (click)="search()">Continuar</button>

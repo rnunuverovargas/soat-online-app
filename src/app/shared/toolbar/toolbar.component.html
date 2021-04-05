@@ -1,16 +1,21 @@
 <mat-toolbar color="primary">
-
-  <button mat-button routerLink="/">
-    <mat-icon>directions_car</mat-icon>
+  <button mat-button routerLink="/home">
+    <mat-icon>
+      directions_carsss
+    </mat-icon>
     SOAT EN LÍNEA
   </button>
 
   <span class="example-spacer"></span>
- 
+  <button mat-button routerLink="/login">
+    <mat-icon>
+      login
+    </mat-icon>
+    Login
+  </button>
   <button mat-icon-button [mat-menu-trigger-for]="menu">
     <mat-icon>more_vert</mat-icon>
   </button>
-
 </mat-toolbar>
 
 <mat-menu #menu="matMenu">

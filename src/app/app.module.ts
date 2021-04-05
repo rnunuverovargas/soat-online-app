@@ -47,9 +47,12 @@ import { VigenciaComponent } from './pages/Vigencia/Vigencia.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ResumenComponent } from './pages/Resumen/Resumen.component';
 import { ConfirmacionComponent } from './pages/Confirmacion/Confirmacion.component';
+import { LoginComponent } from './pages/login/login.component';
+import { VentasComponent } from './pages/ventas/ventas.component';
 
 const appRoutes: Routes = [
   { path: '', component: InicioComponent },
+  { path: 'home', component: InicioComponent },
   { path: 'vehiculo/:placa', component: InfoVehiculoComponent},
   { path: 'buscarPersona', component: BuscarPersonaComponent },
   { path: 'persona', component: InfoPersonaComponent },
@@ -57,6 +60,8 @@ const appRoutes: Routes = [
   { path: 'vigencia', component: VigenciaComponent },
   { path: 'resumen', component: ResumenComponent },
   { path: 'confirmacion', component: ConfirmacionComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'ventas', component: VentasComponent },
 ];
 
 @NgModule({

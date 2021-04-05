@@ -6,3 +6,9 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+
+:host {
+  position: fixed;
+  z-index: 9999 !important;
+  width: 100%;
+}
