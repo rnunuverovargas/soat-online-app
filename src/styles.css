@@ -127,6 +127,14 @@ body {
   .mainImage {
     min-height: 0% !important;
   }
+
+  app-login {
+    min-height: 270px;
+    margin: auto;
+    width: 95%;
+    top: 10px;
+    position: relative
+  }
   
 }
 
