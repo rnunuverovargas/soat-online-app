@@ -13,7 +13,7 @@
                   <option value="">Selecciona el tipo de documento</option>
                   <option *ngFor="let tipodoc of tipodocs" [value]="tipodoc.value">{{tipodoc.label}}</option>
               </select>
-              <input placeholder="Número de documento" [(ngModel)]="numeroDocumento" name="numeroDocumento" type="text">
+              <input placeholder="Número de documento" [(ngModel)]="numeroDocumento" name="numeroDocumento" type="number" >
           </div>
       </form>
   </mat-card-content>
