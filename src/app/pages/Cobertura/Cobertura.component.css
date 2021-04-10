@@ -1,0 +1,15 @@
+.image-cobertura {
+    width: 100%;
+    margin: auto;
+}
+
+.aseguradora {
+    max-width: 27%;
+    display: inline-block;
+    margin: auto;
+}
+
+.container-aseguradoras {
+    margin: auto;
+    display: flex;
+}

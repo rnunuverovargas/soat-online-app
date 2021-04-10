@@ -1,0 +1,14 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .soat-card.ventas {
+    width: 1000px;
+    position: relative;
+    left: -500px;
+  }

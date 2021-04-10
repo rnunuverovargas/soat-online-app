@@ -10,6 +10,27 @@ import { DetalleCoberturaComponent } from './DetalleCobertura/DetalleCobertura.c
 export class CoberturaComponent implements OnInit {
 
   AceptarPoliticas: boolean;
+  
+  aseguradoras = [
+    { 
+      url: "assets/img/logo_rimac.png",
+      nombre: 'Prima anual', 
+      precio: '75.00', 
+      igv: "Incluido IGV" 
+    },
+    { 
+      url: "assets/img/logo_pacifico.jpg",
+      nombre: 'Prima anual', 
+      precio: '80.00', 
+      igv: "Incluido IGV" 
+    },
+    { 
+      url: "assets/img/logo_mapfre.jpg", 
+      nombre: 'Prima anual', 
+      precio: '90.00', 
+      igv: "Incluido IGV" 
+    }
+  ];
 
   coberturas = [
       { nombre: 'Muerte accidental', valor: 'Hasta 4 UIT' },

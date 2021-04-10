@@ -1,53 +1,54 @@
 <mat-card class="soat-card">
-  <mat-card-header>
-      <div mat-card-avatar class="accentColor">
-          <mat-icon>new_releases</mat-icon>
-      </div>
-      <mat-card-title class="accentColor">Cobertura</mat-card-title>
-      <mat-card-subtitle>Te ofrecemos la mejor cobertura del mercado.</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-      <mat-card class="mat-elevation-z5">
-
-          <mat-card-content>
-              <div fxLayout="row" fxLayoutGap="20px" fxLayoutGap.xs="10px" fxLayout.xs="column">
-                  <div fxLayout="column" fxLayoutAlign="center" fxLayoutGap="10px" fxFlex="60%">
-                      <div fxLayoutAlign="center">
-                          <img width="250px" height="120px" src="assets/img/logo_rimac.png" alt="logo_cobertura">
-                      </div>
-                      <span fxLayoutAlign="center">Prima anual</span>
-                      <span fxLayoutAlign="center" style="font-size:2em;font-weight: bold;">S/. 75.00</span>
-                      <span fxLayoutAlign="center">(incluido IGV)</span>
-                  </div>
-                  <mat-list>
-                      <mat-list-item *ngFor="let cobertura of coberturas">
-                          <mat-icon class="accentColor" mat-list-icon>check</mat-icon>
-                          <h5 mat-line class="accentColor">{{cobertura.nombre}}</h5>
-                          <p mat-line> {{cobertura.valor}} </p>
-                      </mat-list-item>
-                  </mat-list>
-              </div>
-
-
-          </mat-card-content>
-          <mat-card-actions>
-              <button mat-button>
-                  <mat-icon>info</mat-icon>
-                  Detalles
-              </button>
-          </mat-card-actions>
-      </mat-card>
-      <form>
-          <div style="margin-top:20px;">
-              <mat-checkbox [(ngModel)]="AceptarPoliticas" name="accept"></mat-checkbox>
-              Declaro haber leído y acepto las
-              <a class="primaryColor" style="cursor: pointer;" (click)="VerPoliticas()">
-          Políticas sobre uso de plataformas de ventas y envío del SOAT Digital por medios electrónicos.
-          </a>
-          </div>
-      </form>
-  </mat-card-content>
-  <mat-card-actions>
-      <button class="soat-button" color="accent" mat-raised-button [disabled]="!AceptarPoliticas" routerLink="/vigencia">Confirmar</button>
-  </mat-card-actions>
-</mat-card>
+    <mat-card-header>
+        <div mat-card-avatar class="accentColor">
+            <mat-icon>new_releases</mat-icon>
+        </div>
+        <mat-card-title class="accentColor">Cobertura</mat-card-title>
+        <mat-card-subtitle>Te ofrecemos la mejor cobertura del mercado.</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div fxLayout="row" fxLayout.xs="column">
+            <div class="container-aseguradoras">
+                <mat-card class="mat-elevation-z5 aseguradora" *ngFor="let aseguradora of aseguradoras">
+                    <mat-card-content>
+                        <div fxLayout="row" fxLayout.xs="column">
+                            <div fxLayout="column" fxLayoutAlign="center">
+                                <div fxLayoutAlign="center">
+                                    <img class="image-cobertura" height="120px" src="{{ aseguradora.url }}" alt="logo_cobertura">
+                                </div>
+                                <br>
+                                <span fxLayoutAlign="center">{{ aseguradora.nombre }}</span>
+                                <br>
+                                <span fxLayoutAlign="center" style="font-size:2em;font-weight: bold;">S/. {{ aseguradora.precio }}</span>
+                                <br>
+                                <span fxLayoutAlign="center">({{ aseguradora.igv }})</span>
+        
+                                <mat-card-actions>
+                                <button mat-button>
+                                    <mat-icon>info</mat-icon>
+                                    Coberturas
+                                </button>
+                                </mat-card-actions>
+        
+                                <div fxLayoutAlign="center">
+                                    <mat-card-actions>
+                                        <button class="soat-button" color="accent" mat-raised-button [disabled]="!AceptarPoliticas" routerLink="/vigencia">Confirmar</button>
+                                    </mat-card-actions>
+                                </div>
+                            </div>                
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+        <form>
+            <div style="margin-top:20px;">
+                <mat-checkbox [(ngModel)]="AceptarPoliticas" name="accept"></mat-checkbox>
+                Declaro haber leído y acepto las
+                <a class="primaryColor politicas" style="cursor: pointer;" (click)="VerPoliticas()">
+            Políticas sobre uso de plataformas de ventas y envío del SOAT Digital por medios electrónicos.
+            </a>
+            </div>
+        </form>
+    </mat-card-content>
+  </mat-card>

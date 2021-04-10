@@ -154,3 +154,8 @@ mat-card-actions .register-link {
   text-align: center;
   padding: 10px;
 }
+
+.politicas {
+  /* font-weight: bold; */
+  color: blue;
+}
