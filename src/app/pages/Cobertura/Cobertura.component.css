@@ -13,3 +13,48 @@
     margin: auto;
     display: flex;
 }
+
+@media (max-width: 600px) {
+    .container-aseguradoras {
+        display: block !important;
+    }
+
+    .aseguradora {
+        max-width: 92% !important;
+        margin-bottom: 10px;
+    }
+}
+
+.container-prima {
+    padding: 5px 0px;
+    border-bottom: 1px solid #f9f8f8;
+}
+
+
+.prima-text {
+    text-align: left;
+    display: inline-block;
+    width: 50%;
+}
+
+.aseguradora .mat-card-actions {
+    margin-bottom: 0px;
+}
+
+.prima-amount {
+    text-align: right;
+    display: inline-block;
+    width: 50%;
+}
+
+.prima-name {
+    background: #f9f8f8
+}
+
+.prima-total {
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+}

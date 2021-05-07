@@ -12,7 +12,7 @@
 
   <mat-card-content>
       <div fxLayout="row" fxLayoutAlign="center">
-          <div fxLayout="column" fxFlex.xs="100%" fxFlex="55%">
+          <div fxLayout="column" fxFlex.xs="100%" fxFlex="100%">
               <mat-list>
                   <mat-list-item class="summary-list-vigencia">
                       <p mat-line class="vigencia-text">SOAT Digital</p>
@@ -32,18 +32,23 @@
                   <mat-list-item>
                       <div mat-line fxLayout="row" class="monto-text">
                           <div fxLayoutAlign="start" fxFlex="50%">Prima Neta</div>
-                          <div fxLayoutAlign="end" fxFlex="50%">S/. 63.56</div>
+                          <div fxLayoutAlign="end" fxFlex="50%">S/. {{ cobertura.PRIMA_NETA }}</div>
+                      </div>
+                      <div mat-line fxLayout="row" class="monto-text">
+                        <div fxLayoutAlign="start" fxFlex="50%">Derechos</div>
+                        <div fxLayoutAlign="end" fxFlex="50%">S/. {{ cobertura.DERECHOS }}</div>
                       </div>
                       <div mat-line fxLayout="row" class="monto-text">
                           <div fxLayoutAlign="start" fxFlex="50%">IGV</div>
-                          <div fxLayoutAlign="end" fxFlex="50%">S/. 11.44</div>
+                          <div fxLayoutAlign="end" fxFlex="50%">S/. {{ cobertura.IMPUESTOS }}</div>
                       </div>
                       <div mat-line fxLayout="row" class="monto-text total-text">
                           <div fxLayoutAlign="start" fxFlex="50%">Total a pagar</div>
-                          <div fxLayoutAlign="end" fxFlex="50%">S/. 75.00</div>
+                          <div fxLayoutAlign="end" fxFlex="50%">S/. {{ cobertura.PRIMA_TOTAL }} </div>
                       </div>
                   </mat-list-item>
               </mat-list>
+              <br >
               <p>
                   El cobro de la transacción se realizará en nuevos soles. Si la tarjeta es en dólares, el tipo de cambio utilizado será el
                   de tu banco.

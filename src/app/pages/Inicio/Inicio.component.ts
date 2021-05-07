@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
+import { CatalogoService } from 'src/app/services/catalogo.service';
 
 @Component({
   selector: 'app-Inicio',
@@ -9,9 +10,11 @@ import { Router } from "@angular/router";
 export class InicioComponent implements OnInit {
 
   placa: string;  
-  constructor(private router: Router) { }
+  constructor(private router: Router, private readonly catalogo: CatalogoService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    // this.catalogo.getDepartments();
+  }
 
   search() {
     this.router.navigate(['/vehiculo', this.placa.toUpperCase()]);

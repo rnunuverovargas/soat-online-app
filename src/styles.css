@@ -113,10 +113,6 @@ body {
   margin: auto !important;
 }
 
-
-
-
-
 @media (max-width: 600px) {
   .mainContainer{
     position: relative; 
@@ -158,4 +154,18 @@ mat-card-actions .register-link {
 .politicas {
   /* font-weight: bold; */
   color: blue;
+}
+
+app-detalle-plan table {
+  width: 100%
+}
+
+app-resumen mat-list {
+  border: 1px solid #efeeee;
+  border-radius: 7px;
+  padding: 0px !important;
+}
+
+app-resumen .mat-list-item-content {
+  padding: 5px 15px !important;
 }

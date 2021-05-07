@@ -50,6 +50,7 @@ import { ResumenComponent } from './Resumen/Resumen.component';
 import { ConfirmacionComponent } from './Confirmacion/Confirmacion.component';
 import { LoginComponent } from './login/login.component';
 import { VentasComponent } from './ventas/ventas.component';
+import { DetallePlanComponent } from './Cobertura/detalle-plan/detalle-plan.component';
 
 
 
@@ -114,9 +115,10 @@ import { VentasComponent } from './ventas/ventas.component';
         ResumenComponent,
         ConfirmacionComponent,
         LoginComponent,
-        VentasComponent
+        VentasComponent,
+        DetallePlanComponent
     ],
-    entryComponents: [DetalleCoberturaComponent,politicasComponent],
+    entryComponents: [DetalleCoberturaComponent,politicasComponent, DetallePlanComponent],
     providers: [
         { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
     ],

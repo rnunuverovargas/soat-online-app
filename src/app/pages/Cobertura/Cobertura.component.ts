@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DetalleCoberturaComponent } from './DetalleCobertura/DetalleCobertura.component';
+import { PolizaService } from 'src/app/services/poliza.service';
+import { DetallePlanComponent } from './detalle-plan/detalle-plan.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-Cobertura',
@@ -8,41 +11,57 @@ import { DetalleCoberturaComponent } from './DetalleCobertura/DetalleCobertura.c
   styleUrls: ['./Cobertura.component.css']
 })
 export class CoberturaComponent implements OnInit {
-
   AceptarPoliticas: boolean;
-  
-  aseguradoras = [
-    { 
-      url: "assets/img/logo_rimac.png",
-      nombre: 'Prima anual', 
-      precio: '75.00', 
-      igv: "Incluido IGV" 
-    },
-    { 
-      url: "assets/img/logo_pacifico.jpg",
-      nombre: 'Prima anual', 
-      precio: '80.00', 
-      igv: "Incluido IGV" 
-    },
-    { 
-      url: "assets/img/logo_mapfre.jpg", 
-      nombre: 'Prima anual', 
-      precio: '90.00', 
-      igv: "Incluido IGV" 
-    }
-  ];
+  aseguradoras = [];
+  coberturas = [];
 
-  coberturas = [
-      { nombre: 'Muerte accidental', valor: 'Hasta 4 UIT' },
-      { nombre: 'Invalidez permanente', valor: 'Hasta 1 UIT' },
-      { nombre: 'Incapacidad temporal', valor: 'Hasta 5 UIT' }
-  ];
+  constructor(
+    public dialog: MatDialog,
+    private router: Router,
+    private readonly polizaService: PolizaService) { }
 
-  constructor(public dialog: MatDialog) { }
+  ngOnInit() { 
+    var dt:any = sessionStorage.getItem('dt');
+    dt = JSON.parse(dt);
 
-  ngOnInit() { }
+    var data = {
+      tarifa: [
+        {
+          PLACA: dt.vh.placa,
+          MARCA_ID: Number(dt.vh.marca),
+          MODELO_ID: Number(dt.vh.modelo),
+          TIPO_VEH_ID: Number(dt.vh.tipo),
+          ANIO: Number(dt.vh.anio),
+          USO_VEH_ID: Number(dt.vh.uso),
+          ZONA_VEH_ID: Number(dt.vh.region)
+        }
+      ]
+    };
+
+    this.polizaService.getRates(data).subscribe((rest: any) => {
+      this.aseguradoras = rest.tarifas.map((item) => {
+        item.url = "assets/img/" + item.LOGO;
+        item.nombre = item.CIASEG;
+        return item;
+      });
+    });
+  }
+
+  onShowPlans(data) {
+    this.dialog.open(DetallePlanComponent, {
+      width: '90%',
+      data: data
+    });
+  }
 
   VerPoliticas() {
       this.dialog.open(DetalleCoberturaComponent);
+  }
+
+  onAccept(aseguradora) {
+    let data = JSON.parse(sessionStorage.getItem('dt'));
+    data.c = aseguradora;
+    sessionStorage.setItem('dt', JSON.stringify(data));
+    this.router.navigate(['/vigencia']);
   }
 }

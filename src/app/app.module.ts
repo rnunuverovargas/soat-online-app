@@ -49,6 +49,7 @@ import { ResumenComponent } from './pages/Resumen/Resumen.component';
 import { ConfirmacionComponent } from './pages/Confirmacion/Confirmacion.component';
 import { LoginComponent } from './pages/login/login.component';
 import { VentasComponent } from './pages/ventas/ventas.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: '', component: InicioComponent },
@@ -107,7 +108,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FlexLayoutModule,
     SharedModule,
-    PagesModule
+    PagesModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

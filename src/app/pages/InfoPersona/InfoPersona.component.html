@@ -9,33 +9,36 @@
   <mat-card-content>
 
       <form>
-          <div fxLayout="column" fxFlex.sm="50%" fxFlex.xs="100%" fxLayoutGap="10px">
+          <div fxLayout="column" fxLayoutGap="10px">
               <input placeholder="Nombres" type="text" [(ngModel)]="Persona.nombres" name="nombres">
-              <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap.sm="0" fxLayoutGap="10px">
-                  <input type="text" [(ngModel)]="Persona.apellidoPaterno" name="apellidoPaterno" placeholder="Apellido Paterno">
-                  <input type="text" [(ngModel)]="Persona.apellidoMaterno " name="apellidoMaterno" placeholder="Apellido Materno">
+              
+              <div fxLayout="row" fxLayoutGap="10px" fxLayout.xs="column">
+                <input type="text" [(ngModel)]="Persona.apellidoPaterno" name="apellidoPaterno" placeholder="Apellido Paterno">
+                <input type="text" [(ngModel)]="Persona.apellidoMaterno " name="apellidoMaterno" placeholder="Apellido Materno">
               </div>
-              <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap.sm="0" fxLayoutGap="10px">
+
+              <div fxLayout="row" fxLayoutGap="10px" fxLayout.xs="column">
                 <input type="text" [(ngModel)]="Persona.celular " name="celular" placeholder="Celular">
                 <input type="text" [(ngModel)]="Persona.correo" name="correo" placeholder="Correo electrónico">                
               </div>
-              <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap.sm="0" fxLayoutGap="10px">                  
-                  <select [(ngModel)]="Persona.departamento" name="departamento">
-                      <option value="">Selecciona el departamento</option>
+              
+              <div fxLayout="row" fxLayoutGap="10px" fxLayout.xs="column">
+                  <select [(ngModel)]="Persona.departamento" name="departamento" (change)="onChangeDepartamentos($event)">
+                      <option [value]="-1">Selecciona el departamento</option>
                       <option *ngFor="let departamento of departamentos" [value]="departamento.value">
                           {{departamento.label}}
                       </option>
                   </select>
-                  <select [(ngModel)]="Persona.provincia" name="provincia">
-                    <option value="">Selecciona la provincia</option>
+                  <select *ngIf="provincias.length" [(ngModel)]="Persona.provincia" name="provincia" (change)="onChangeProvincias($event)">
+                    <option [value]="-1">Selecciona la provincia</option>
                     <option *ngFor="let provincia of provincias" [value]="provincia.value">
                         {{provincia.label}}
                     </option>
                   </select>
               </div>
               <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap.sm="0" fxLayoutGap="10px">
-                  <select [(ngModel)]="Persona.distrito" name="distrito">
-                          <option value="">Selecciona el distrito</option>
+                  <select *ngIf="distritos.length" [(ngModel)]="Persona.distrito" name="distrito">
+                          <option [value]="-1">Selecciona el distrito</option>
                           <option *ngFor="let distrito of distritos" [value]="distrito.value">
                                   {{distrito.label}}
                           </option>

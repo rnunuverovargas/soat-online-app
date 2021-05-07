@@ -17,22 +17,32 @@
                                     <img class="image-cobertura" height="120px" src="{{ aseguradora.url }}" alt="logo_cobertura">
                                 </div>
                                 <br>
-                                <span fxLayoutAlign="center">{{ aseguradora.nombre }}</span>
+                                <span class="prima-name" fxLayoutAlign="center">{{ aseguradora.nombre }}</span>
+
+                                <div class="container-prima">
+                                    <span class="prima-text"> Prima Neta:</span> 
+                                    <span class="prima-amount"> {{ aseguradora.PRIMA_NETA }}</span>
+                                </div>
+                                <div class="container-prima">
+                                    <span class="prima-text"> Derechos:</span> 
+                                    <span class="prima-amount"> {{ aseguradora.DERECHOS }}</span>
+                                </div>
+                                <div class="container-prima">
+                                    <span class="prima-text"> Impuestos:</span> 
+                                    <span class="prima-amount"> {{ aseguradora.IMPUESTOS }}</span>
+                                </div>
                                 <br>
-                                <span fxLayoutAlign="center" style="font-size:2em;font-weight: bold;">S/. {{ aseguradora.precio }}</span>
-                                <br>
-                                <span fxLayoutAlign="center">({{ aseguradora.igv }})</span>
-        
+                                <span class="prima-total" fxLayoutAlign="center" style="font-size:25px;font-weight: bold;">S/. {{ aseguradora.PRIMA_TOTAL }}</span>
                                 <mat-card-actions>
-                                <button mat-button>
-                                    <mat-icon>info</mat-icon>
-                                    Coberturas
-                                </button>
+                                    <button mat-button (click)="onShowPlans(aseguradora)">
+                                        <mat-icon>info</mat-icon>
+                                        Coberturas
+                                    </button>
                                 </mat-card-actions>
         
                                 <div fxLayoutAlign="center">
                                     <mat-card-actions>
-                                        <button class="soat-button" color="accent" mat-raised-button [disabled]="!AceptarPoliticas" routerLink="/vigencia">Confirmar</button>
+                                        <button class="soat-button" color="accent" mat-raised-button [disabled]="!AceptarPoliticas" (click)="onAccept(aseguradora)">Confirmar</button>
                                     </mat-card-actions>
                                 </div>
                             </div>                

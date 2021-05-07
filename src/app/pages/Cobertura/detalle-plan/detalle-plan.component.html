@@ -1,0 +1,47 @@
+  <div md-dialog-title class="primaryColor title">
+    {{ title }}
+  </div>
+  <div md-dialog-content>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="COBERTURA_ID">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.COBERTURA_ID}} </td>
+        </ng-container>
+      
+        <!-- Cobertura Column -->
+        <ng-container matColumnDef="COBERTURA">
+          <th mat-header-cell *matHeaderCellDef> Cobertura </th>
+          <td mat-cell *matCellDef="let element"> {{element.COBERTURA}} </td>
+        </ng-container>
+      
+        <!-- Description Column -->
+        <ng-container matColumnDef="DESCRIPCION">
+          <th mat-header-cell *matHeaderCellDef> Description </th>
+          <td mat-cell *matCellDef="let element"> {{element.DESCRIPCION}} </td>
+        </ng-container>
+      
+        <!-- Deducible Column -->
+        <ng-container matColumnDef="DEDUCIBLE">
+          <th mat-header-cell *matHeaderCellDef> Deducible </th>
+          <td mat-cell *matCellDef="let element"> {{element.DEDUCIBLE}} </td>
+        </ng-container>
+
+        <!-- Suma Asegurada Column -->
+        <ng-container matColumnDef="SUMA_ASEGURADA">
+            <th mat-header-cell *matHeaderCellDef> Suma Asegurada </th>
+            <td mat-cell *matCellDef="let element"> {{element.SUMA_ASEGURADA}} </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      
+      
+    
+  </div>

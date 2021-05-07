@@ -9,31 +9,32 @@
     <mat-card-content>
 
         <form>
-            <div fxLayout="column" fxFlex.sm="100%" fxFlex.xs="100%" fxLayoutGap="10px">
-                <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap.sm="0" fxLayoutGap="10px">
-                    <select class="full-width" [(ngModel)]="Vehiculo.marca" name="marca">
-                        <option>Selecciona la marca</option>
+            <div fxLayout="column"  fxLayoutGap="10px">
+                <div fxLayout="row" fxLayoutGap="10px" fxLayout.xs="column">
+                    <select class="full-width" [(ngModel)]="Vehiculo.marca" name="marca" (change)="onChangeMarca($event)">
+                        <option [value]="-1">Selecciona la marca</option>
                         <option *ngFor="let marca of marcas" [value]="marca.value">{{marca.label}}</option>
                     </select>
 
-                    <select class="full-width" [(ngModel)]="Vehiculo.modelo" name="modelo">
-                        <option>Selecciona el modelo</option>
+                    <select class="full-width" *ngIf="modelos.length" [(ngModel)]="Vehiculo.modelo" name="modelo">
+                        <option [value]="-1">Selecciona el modelo</option>
                         <option *ngFor="let modelo of modelos" [value]="modelo.value">{{modelo.label}}</option>
                     </select>
                 </div>
                 <select class="full-width" [(ngModel)]="Vehiculo.tipo" name="tipo">
-                    <option>Selecciona el tipo</option>
+                    <option [value]="-1">Selecciona el tipo</option>
                     <option *ngFor="let tipo of tipos" [value]="tipo.value">{{tipo.label}}</option>
                 </select>
                 <div fxLayout="row" fxLayoutGap="10px" fxLayout.xs="column">
                     <input [(ngModel)]="Vehiculo.anio" name="anio" placeholder="Año" type="number" maxlength="4">
+                    
                     <select class="full-width" [(ngModel)]="Vehiculo.uso" name="uso">
-                        <option>Selecciona el uso</option>
+                        <option [value]="-1">Selecciona el uso</option>
                         <option *ngFor="let uso of usos" [value]="uso.value">{{uso.label}}</option>
                     </select>
                 </div>
                 <select class="full-width" [(ngModel)]="Vehiculo.region" name="region">
-                    <option>Selecciona la Región</option>
+                    <option [value]="-1">Selecciona la región</option>
                     <option *ngFor="let region of regiones" [value]="region.value">{{region.label}}</option>
                 </select>
             </div>
