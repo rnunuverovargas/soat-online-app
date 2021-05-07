@@ -50,6 +50,8 @@ import { ConfirmacionComponent } from './pages/Confirmacion/Confirmacion.compone
 import { LoginComponent } from './pages/login/login.component';
 import { VentasComponent } from './pages/ventas/ventas.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NosotrosComponent } from './pages/nosotros/nosotros.component';
+import { AyudaComponent } from './pages/ayuda/ayuda.component';
 
 const appRoutes: Routes = [
   { path: '', component: InicioComponent },
@@ -63,6 +65,8 @@ const appRoutes: Routes = [
   { path: 'confirmacion', component: ConfirmacionComponent },
   { path: 'login', component: LoginComponent },
   { path: 'ventas', component: VentasComponent },
+  { path: 'nosotros', component: NosotrosComponent },
+  { path: 'ayuda', component: AyudaComponent }
 ];
 
 @NgModule({

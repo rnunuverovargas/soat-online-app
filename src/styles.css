@@ -169,3 +169,7 @@ app-resumen mat-list {
 app-resumen .mat-list-item-content {
   padding: 5px 15px !important;
 }
+
+.cdk-overlay-connected-position-bounding-box {
+  top: 63px !important;
+}

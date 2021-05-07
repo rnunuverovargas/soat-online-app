@@ -12,6 +12,7 @@ import { Event as NavigationEvent } from "@angular/router";
 
 
 export class AppComponent implements OnInit {
+  isVentas: boolean = false;
 
   sections = [
     {
@@ -34,6 +35,7 @@ export class AppComponent implements OnInit {
   constructor(
     private route: ActivatedRoute, 
     private router: Router) {
+      this.isVentas = location.href.indexOf('ventas') != -1;
 
     }
     
