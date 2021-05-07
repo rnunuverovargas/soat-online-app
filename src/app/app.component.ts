@@ -13,6 +13,7 @@ import { Event as NavigationEvent } from "@angular/router";
 
 export class AppComponent implements OnInit {
   isVentas: boolean = false;
+  isNosotros: boolean = false;
 
   sections = [
     {
@@ -35,7 +36,6 @@ export class AppComponent implements OnInit {
   constructor(
     private route: ActivatedRoute, 
     private router: Router) {
-      this.isVentas = location.href.indexOf('ventas') != -1;
 
     }
     
@@ -44,6 +44,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.isVentas = location.href.indexOf('ventas') != -1;
+    this.isNosotros = location.href.indexOf('nosotros') != -1;
+    
     this.router.events
     .pipe(
       filter(
@@ -54,6 +57,9 @@ export class AppComponent implements OnInit {
     )
     .subscribe(
       (event: NavigationEnd) => {
+        this.isVentas = event.url.indexOf('ventas') != -1;
+        this.isNosotros = event.url.indexOf('nosotros') != -1;
+
         if (event.url.indexOf('ventas') != -1) {
           var token = sessionStorage.getItem('token');
 

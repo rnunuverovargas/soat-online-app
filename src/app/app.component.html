@@ -1,14 +1,14 @@
 <app-toolbar></app-toolbar>
 <div class="mainContainer">
     <div class="container-general">
-        <div fxLayout="row" class="mainImage" *ngIf="!isVentas">
+        <div fxLayout="row" class="mainImage" *ngIf="!isVentas && !isNosotros">
             <div fxLayout="column" fxFlex="50%" fxHide.sm="true" fxHide.xs="true">
             </div>
             <div fxLayout="column" fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%" class="component">
                 <router-outlet (deactivate)="onDeactivate()"></router-outlet>
             </div>
         </div>
-        <div fxLayout="row" class="mainImage" *ngIf="isVentas">
+        <div fxLayout="row" class="mainImage" *ngIf="isVentas || isNosotros">
             <div fxLayout="column" fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" class="component">
                 <router-outlet (deactivate)="onDeactivate()"></router-outlet>
             </div>
