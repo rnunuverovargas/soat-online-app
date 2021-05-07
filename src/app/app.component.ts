@@ -1,4 +1,7 @@
-import { Component,ViewEncapsulation } from '@angular/core';
+import { Component,ViewEncapsulation, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/internal/operators/filter';
+import { Event as NavigationEvent } from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -6,7 +9,10 @@ import { Component,ViewEncapsulation } from '@angular/core';
   styleUrls: ['./app.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class AppComponent {
+
+
+export class AppComponent implements OnInit {
+
   sections = [
     {
       title: 'COMPARA',
@@ -25,7 +31,34 @@ export class AppComponent {
     }
   ];
 
+  constructor(
+    private route: ActivatedRoute, 
+    private router: Router) {
+
+    }
+    
   onDeactivate() {
     document.body.scrollTop = 0;
+  }
+
+  ngOnInit() {
+    this.router.events
+    .pipe(
+      filter(
+        (event: NavigationEvent) => {
+          return (event instanceof NavigationEnd);
+        }
+      )
+    )
+    .subscribe(
+      (event: NavigationEnd) => {
+        if (event.url.indexOf('ventas') != -1) {
+          var token = sessionStorage.getItem('token');
+
+          if (!token) {
+            this.router.navigate(['login']);
+          }
+        }
+      })
   }
 }

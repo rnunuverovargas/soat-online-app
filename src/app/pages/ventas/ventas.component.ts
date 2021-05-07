@@ -1,31 +1,56 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { VentasService } from 'src/app/services/ventas.service';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
-export interface PeriodicElement {
-  position: number;
-  usuario: string;
-  producto: string;
-  placa: string;
-  precio: number;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, usuario: 'APEREZ', producto: 'PACIFICO', placa: 'SID-643', precio: 750.00 },
-  {position: 2, usuario: 'FGONZALEZ', producto: 'PACIFICO', placa: 'BEH-852', precio: 750.00 },
-  {position: 3, usuario: 'GQUILLE', producto: 'RIMAC', placa: 'KEY-569', precio: 650.00 },
-  {position: 4, usuario: 'BHUERTAS', producto: 'PACIFICO', placa: 'GHJ-525', precio: 750.00 }
-];
 @Component({
   selector: 'app-ventas',
   templateUrl: './ventas.component.html',
-  styleUrls: ['./ventas.component.css']
+  styleUrls: ['./ventas.component.css'],
 })
-export class VentasComponent {
-  displayedColumns: string[] = ['position', 'usuario', 'producto', 'placa', 'precio'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+export class VentasComponent implements OnInit{
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  ventas = [];
+
+  ventasForm = this.fb.group({
+    filtros: this.fb.array([
+      this.fb.group({
+        NRO_DOC: '',
+        PLACA: '',
+        TIPO_VEH_ID: 0,
+        USO_VEH_ID: 0,
+        ZONA_VEH_ID: 0,
+        FEC_EMISION: '',
+        NRO_CERT_SOAT: ''
+      })
+    ])
+  });
+
+  get filtros() {
+    return (<FormArray>(<FormGroup>this.ventasForm).get('filtros')).controls;
+  }
+
+  constructor(
+        private fb: FormBuilder, 
+        private readonly ventasService: VentasService,
+        private router: Router
+    ) { }
+
+  getVentas(dataUser) {
+    const token = sessionStorage.getItem('token');
+    const header = { Authorization: 'Bearer ' + token };
+    const param = '';
+
+    if(token == "undefined"){ alert("Favor de Iniciar Sesión como Administrador") } 
+    else{ this.ventasService.getVentas(dataUser, header).subscribe((rest: any) => { this.ventas = rest.resultado; }) }
+  }
+
+  onSubmit() {
+    this.getVentas(this.ventasForm.value);
+  }
+
+  ngOnInit(): void {
+    
   }
 }

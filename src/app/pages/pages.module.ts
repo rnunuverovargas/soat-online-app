@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -51,12 +51,15 @@ import { ConfirmacionComponent } from './Confirmacion/Confirmacion.component';
 import { LoginComponent } from './login/login.component';
 import { VentasComponent } from './ventas/ventas.component';
 import { DetallePlanComponent } from './Cobertura/detalle-plan/detalle-plan.component';
+import { NosotrosComponent } from './nosotros/nosotros.component';
+import { AyudaComponent } from './ayuda/ayuda.component';
 
 
 
 @NgModule({
     imports: [
         FormsModule,
+        ReactiveFormsModule,
         BrowserModule,
         BrowserAnimationsModule,
         MatCheckboxModule,
@@ -116,7 +119,9 @@ import { DetallePlanComponent } from './Cobertura/detalle-plan/detalle-plan.comp
         ConfirmacionComponent,
         LoginComponent,
         VentasComponent,
-        DetallePlanComponent
+        DetallePlanComponent,
+        NosotrosComponent,
+        AyudaComponent
     ],
     entryComponents: [DetalleCoberturaComponent,politicasComponent, DetallePlanComponent],
     providers: [

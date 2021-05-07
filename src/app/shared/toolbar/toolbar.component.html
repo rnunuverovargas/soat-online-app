@@ -11,20 +11,29 @@
     <mat-icon>
       login
     </mat-icon>
-    Login
+    <a *ngIf="token == null && !isLogin" style="color:white; text-decoration: none;" role="button" routerLink="/login"> Acceder</a>
+    <a *ngIf="token != null" style="color:white; text-decoration: none;" role="button" (click)="onLogout()"> Cerrar Sesion</a>     
   </button>
+
+
   <button mat-icon-button [mat-menu-trigger-for]="menu">
     <mat-icon>more_vert</mat-icon>
   </button>
 </mat-toolbar>
 
 <mat-menu #menu="matMenu">
-  <button mat-menu-item>
-      <mat-icon>help</mat-icon>
-      <span>Ayuda</span>
+  <button mat-menu-item routerLink="/ayuda">
+    <mat-icon>help</mat-icon>
+    <span>Ayuda</span>
   </button>
-  <Button mat-menu-item (click)="prueba()">
-    <mat-icon>insert_chart</mat-icon>
+
+  <button mat-menu-item routerLink="/nosotros">
+    <mat-icon>help</mat-icon> 
+    <span>Nosotros</span>
+  </button>
+
+  <button mat-menu-item routerLink="/ventas">
+    <mat-icon>help</mat-icon> 
     <span>Ventas</span>
-  </Button>
+  </button>
 </mat-menu>
