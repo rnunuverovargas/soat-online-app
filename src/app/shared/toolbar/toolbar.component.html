@@ -8,7 +8,7 @@
 
   <span class="example-spacer"></span>
   <button mat-button routerLink="/login">
-    <mat-icon>
+    <mat-icon *ngIf="!isLogin">
       login
     </mat-icon>
     <a *ngIf="token == null && !isLogin" style="color:white; text-decoration: none;" role="button" routerLink="/login"> Acceder</a>
