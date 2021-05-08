@@ -22,6 +22,7 @@ export class InfoPersonaComponent implements OnInit {
   distritos = [];
   tipoDoc: string = "";
   doc: string = "";
+  message: string = "";
 
   constructor(
       private route: ActivatedRoute, 
@@ -68,9 +69,10 @@ export class InfoPersonaComponent implements OnInit {
     this.contratanteService.getContratante(this.tipoDoc, this.doc).subscribe((rest: any) => {
         var personData = (rest || {}).contratante || [];
 
+        this.Persona.tipoDocumento = this.tipoDoc;
+        this.Persona.numeroDocumento = this.doc;
+        
         if (personData.length) {
-            this.Persona.tipoDocumento = this.tipoDoc;
-            this.Persona.numeroDocumento = this.doc;
             this.Persona.nombres = personData[0].NOMBRES;
             this.Persona.apellidoPaterno = personData[0].APELLIDO1;
             this.Persona.apellidoMaterno = personData[0].APELLIDO2;
@@ -127,9 +129,16 @@ export class InfoPersonaComponent implements OnInit {
   }
 
   verCobertura() {
+    this.message = "";
+    var validate = this.catalogoService.validateRequired(this.Persona);
+
+    if (validate.success) {
       let data = JSON.parse(sessionStorage.getItem('dt'));
       data.ct = this.Persona;
       sessionStorage.setItem('dt', JSON.stringify(data));
       this.router.navigate(['/cobertura']);
+    } else {
+      this.message = "Todos los campos son requeridos";
+    }
   }
 }

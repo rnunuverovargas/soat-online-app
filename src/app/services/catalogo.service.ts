@@ -5,8 +5,26 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CatalogoService {
+  allFields: {};
 
   constructor(private readonly http: HttpClient) { }
+
+  validateRequired(fields) {
+    var ready = true;
+    var errorFields = [];
+
+    Object.keys(fields).map((item, i) => {
+      if (fields[item] == null || fields[item]  ==  undefined || fields[item]  == "" || fields[item]  == "-1") {
+        ready = false;
+        errorFields.push(item)
+      }
+    });
+
+    return {
+      success: ready,
+      fields: errorFields
+    }
+  }
 
   getDocumentTypes() {
     const tipoCatalogoId = 1;

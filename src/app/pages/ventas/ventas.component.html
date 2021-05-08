@@ -8,17 +8,16 @@
       <mat-card-title class="accentColor">Ventas</mat-card-title>
   </mat-card-header>
 
-  <form [formGroup]="ventasForm">
+ 
     <div fxLayout="column" fxLayoutGap="10px">
-      <div fxLayout="row" fxLayoutGap="10px" fxLayout.xs="column" formGroupName="filtros">
-        <input type="number" formControlName="NRO_DOC" placeholder="Número de Documento">
-        <input type="text" formControlName="PLACA" placeholder="Número de Placa">
+      <div fxLayout="row" fxLayoutGap="10px" fxLayout.xs="column">
+        <input type="number"  [(ngModel)]="params.NRO_DOC"  placeholder="Número de Documento">
+        <input type="text" [(ngModel)]="params.PLACA" placeholder="Número de Placa">
         <mat-card-actions>
-          <button class="soat-button" color="accent" mat-raised-button (click)="onSubmit()">Buscar</button>
+          <button class="soat-button" color="accent" mat-raised-button (click)="onSearch()">Buscar</button>
         </mat-card-actions>
       </div>
     </div>
-  </form>
 
   <div style="overflow-x:auto;">
   <table class="styled-table">

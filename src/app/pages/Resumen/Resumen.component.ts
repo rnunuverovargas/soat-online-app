@@ -100,6 +100,7 @@ export class ResumenComponent implements OnInit {
     this.polizaService.createPolicy(data).subscribe((rest: any) => {
         if (rest.txt_response == "Satisfactorio") {
             sessionStorage.clear();
+            alert("Gracias por su compra. En breve le llegara una copia a su correo.")
             this.router.navigate(['/home']);
         }
     });

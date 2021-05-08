@@ -20,6 +20,7 @@ export class InfoVehiculoComponent implements OnInit {
   usos = [];
   regiones = [];
   selectedMarca: string;
+  message: string = "";
 
   constructor(
       private route: ActivatedRoute, 
@@ -109,10 +110,17 @@ export class InfoVehiculoComponent implements OnInit {
   }
 
   buscarPersona() {
-    let data = { vh: this.Vehiculo, ct: null };
-    sessionStorage.clear();
-    sessionStorage.setItem('dt', JSON.stringify(data));
-    console.log(this.Vehiculo);
-    this.router.navigate(['/buscarPersona']);
+    this.message = "";
+    var validate = this.catalogoService.validateRequired(this.Vehiculo);
+
+    if (validate.success) {
+      let data = { vh: this.Vehiculo, ct: null };
+      sessionStorage.clear();
+      sessionStorage.setItem('dt', JSON.stringify(data));
+      console.log(this.Vehiculo);
+      this.router.navigate(['/buscarPersona']);
+    } else {
+      this.message = "Todos los campos son requeridos";
+    }
   }
 }

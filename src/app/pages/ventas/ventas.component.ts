@@ -13,41 +13,49 @@ export class VentasComponent implements OnInit{
 
   ventas = [];
 
-  ventasForm = this.fb.group({
-    filtros: this.fb.array([
-      this.fb.group({
-        NRO_DOC: '',
-        PLACA: '',
-        TIPO_VEH_ID: 0,
-        USO_VEH_ID: 0,
-        ZONA_VEH_ID: 0,
-        FEC_EMISION: '',
-        NRO_CERT_SOAT: ''
-      })
-    ])
-  });
-
-  get filtros() {
-    return (<FormArray>(<FormGroup>this.ventasForm).get('filtros')).controls;
+  params:any = {
+      NRO_DOC: '',
+      PLACA: '',
+      TIPO_VEH_ID: 0,
+      USO_VEH_ID: 0,
+      ZONA_VEH_ID: 0,
+      FEC_EMISION: '',
+      NRO_CERT_SOAT: ''
   }
 
   constructor(
         private fb: FormBuilder, 
         private readonly ventasService: VentasService,
         private router: Router
-    ) { }
+    ) { 
+      this.onSearch();
+    }
 
   getVentas(dataUser) {
     const token = sessionStorage.getItem('token');
     const header = { Authorization: 'Bearer ' + token };
-    const param = '';
 
-    if(token == "undefined"){ alert("Favor de Iniciar Sesión como Administrador") } 
-    else{ this.ventasService.getVentas(dataUser, header).subscribe((rest: any) => { this.ventas = rest.resultado; }) }
+    var data = {
+      filtros: [dataUser]
+    }
+
+    this.ventasService.getVentas(data, header).subscribe((rest: any) => { 
+      this.ventas = rest.resultado; 
+    });
   }
 
-  onSubmit() {
-    this.getVentas(this.ventasForm.value);
+  onSearch() {
+    var data = {
+      NRO_DOC: this.params.NRO_DOC ? String(this.params.NRO_DOC) : '',
+      PLACA: String(this.params.PLACA),
+      TIPO_VEH_ID: 0,
+      USO_VEH_ID: 0,
+      ZONA_VEH_ID: 0,
+      FEC_EMISION: '',
+      NRO_CERT_SOAT: ''
+    }
+
+    this.getVentas(data);
   }
 
   ngOnInit(): void {
