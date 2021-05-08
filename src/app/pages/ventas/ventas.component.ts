@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
 import { VentasService } from 'src/app/services/ventas.service';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -24,7 +22,6 @@ export class VentasComponent implements OnInit{
   }
 
   constructor(
-        private fb: FormBuilder, 
         private readonly ventasService: VentasService,
         private router: Router
     ) { 

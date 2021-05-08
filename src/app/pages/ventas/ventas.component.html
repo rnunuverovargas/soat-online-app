@@ -1,70 +1,68 @@
 
-
 <mat-card class="soat-card ventas">
   <mat-card-header>
-      <div mat-card-avatar class="accentColor">
-          <mat-icon>attach_money</mat-icon>
-      </div>
-      <mat-card-title class="accentColor">Ventas</mat-card-title>
+    <div mat-card-avatar class="accentColor">
+        <mat-icon>attach_money</mat-icon>
+    </div>
+    <mat-card-title class="accentColor">Ventas</mat-card-title>
   </mat-card-header>
 
- 
-    <div fxLayout="column" fxLayoutGap="10px">
-      <div fxLayout="row" fxLayoutGap="10px" fxLayout.xs="column">
-        <input type="number"  [(ngModel)]="params.NRO_DOC"  placeholder="Número de Documento">
-        <input type="text" [(ngModel)]="params.PLACA" placeholder="Número de Placa">
-        <mat-card-actions>
-          <button class="soat-button" color="accent" mat-raised-button (click)="onSearch()">Buscar</button>
-        </mat-card-actions>
-      </div>
+  <div fxLayout="column" fxLayoutGap="10px">
+    <div fxLayout="row" fxLayoutGap="10px" fxLayout.xs="column">
+      <input type="number"  [(ngModel)]="params.NRO_DOC"  placeholder="Número de Documento">
+      <input type="text" [(ngModel)]="params.PLACA" placeholder="Número de Placa">
+      <mat-card-actions>
+        <button class="soat-button" color="accent" mat-raised-button (click)="onSearch()">Buscar</button>
+      </mat-card-actions>
     </div>
+  </div>
 
   <div style="overflow-x:auto;">
-  <table class="styled-table">
+    <table class="styled-table">
       <thead>
-          <tr>
-              <th>Tipo Documento</th>
-              <th>Nro Documento</th>
-              <th>Nombres</th>
-              <th>Apellido Paterno</th>
-              <th>Apellido Materno</th>
-              <th>Móvil</th>
-              <th>Email</th>
-              <th>Departamento</th>
-              <th>Provincia</th>
-              <th>Distrito</th>
-              <th>Direccion</th>
-              <th>Placa</th>
-              <th>Vehículo</th>
-              <th>Tipo</th>
-              <th>Uso</th>
-              <th>Zona Vehicular</th>
-              <th>Año</th>
-              <th>Certificado SOAT</th>
-          </tr>
+        <tr>
+          <th>Tipo Documento</th>
+          <th>Nro Documento</th>
+          <th>Nombres</th>
+          <th>Apellido Paterno</th>
+          <th>Apellido Materno</th>
+          <th>Móvil</th>
+          <th>Email</th>
+          <th>Departamento</th>
+          <th>Provincia</th>
+          <th>Distrito</th>
+          <th>Direccion</th>
+          <th>Placa</th>
+          <th>Vehículo</th>
+          <th>Tipo</th>
+          <th>Uso</th>
+          <th>Zona Vehicular</th>
+          <th>Año</th>
+          <th>Certificado SOAT</th>
+        </tr>
       </thead>
       <tbody>
-          <tr *ngFor="let p of ventas">
-              <td>{{ p.TIPO_DOC }}</td>
-              <td>{{ p.NRO_DOC }}</td>
-              <td>{{ p.NOMBRES }}</td>
-              <td>{{ p.APELLIDO1 }}</td>
-              <td>{{ p.APELLIDO2 }}</td>
-              <td>{{ p.TELEFONO_MOVIL }}</td>
-              <td>{{ p.EMAIL }}</td>
-              <td>{{ p.DEPARTAMENTO }}</td>
-              <td>{{ p.PROVINCIA }}</td>
-              <td>{{ p.DISTRITO }}</td>
-              <td>{{ p.DIRECCION }}</td>
-              <td>{{ p.PLACA }}</td>
-              <td>{{ p.VEHICULO }}</td>
-              <td>{{ p.TIPO_VEH }}</td>
-              <td>{{ p.USO_VEH }}</td>
-              <td>{{ p.ZONA_VEH }}</td>
-              <td>{{ p.ANIO }}</td>
-              <td>{{ p.NUM_CERTIFICADO_SOAT }}</td>
-          </tr>
+        <tr *ngFor="let p of ventas">
+            <td>{{ p.TIPO_DOC }}</td>
+            <td>{{ p.NRO_DOC }}</td>
+            <td>{{ p.NOMBRES }}</td>
+            <td>{{ p.APELLIDO1 }}</td>
+            <td>{{ p.APELLIDO2 }}</td>
+            <td>{{ p.TELEFONO_MOVIL }}</td>
+            <td>{{ p.EMAIL }}</td>
+            <td>{{ p.DEPARTAMENTO }}</td>
+            <td>{{ p.PROVINCIA }}</td>
+            <td>{{ p.DISTRITO }}</td>
+            <td>{{ p.DIRECCION }}</td>
+            <td>{{ p.PLACA }}</td>
+            <td>{{ p.VEHICULO }}</td>
+            <td>{{ p.TIPO_VEH }}</td>
+            <td>{{ p.USO_VEH }}</td>
+            <td>{{ p.ZONA_VEH }}</td>
+            <td>{{ p.ANIO }}</td>
+            <td>{{ p.NUM_CERTIFICADO_SOAT }}</td>
+        </tr>
       </tbody>
-  </table>
-</div>
-  </mat-card>
+    </table>
+  </div>
+</mat-card>
